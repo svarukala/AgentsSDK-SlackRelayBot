@@ -224,9 +224,9 @@ COPILOT_REQUIRE_AUTH=true
 
 ```bash
 # Get these from your Slack app configuration
-SLACK_BOT_TOKEN=xoxb-1234567890123-1234567890123-abcdefghijklmnopqrstuvwx
-SLACK_SIGNING_SECRET=a1b2c3d4e5f6789012345678901234567890abcd
-SLACK_APP_TOKEN=xapp-1-A1234567890-1234567890123-abcdefghijklmnopqrstuvwxyz123456789012345678901234567890
+SLACK_BOT_TOKEN=xoxb-placeholder-token
+SLACK_SIGNING_SECRET=placeholder-secret
+SLACK_APP_TOKEN=xapp-1-placeholder-token
 ```
 
 **Where to find these values:**
