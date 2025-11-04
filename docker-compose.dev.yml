@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  slack-relay-bot-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: slack-relay-bot-dev
+    ports:
+      - "8005:8005"
+    environment:
+      # Development settings
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - PORT=8005
+    
+    env_file:
+      - .env
+    
+    # Mount source code for live reloading
+    volumes:
+      - ./src:/app/src
+      - ./package*.json:/app/
+      - /app/node_modules  # Anonymous volume to prevent overwriting
+    
+    # Keep container running for development
+    stdin_open: true
+    tty: true
+    
+    restart: unless-stopped
+    
+    networks:
+      - slack-relay-network
+
+networks:
+  slack-relay-network:
+    driver: bridge
+    name: slack-relay-network

@@ -1,0 +1,65 @@
+services:
+  slack-relay-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: slack-relay-bot
+    ports:
+      - "8005:8005"
+    environment:
+      # Copilot Studio Configuration
+      - COPILOT_ENVIRONMENT_ID=${COPILOT_ENVIRONMENT_ID}
+      - COPILOT_AGENT_IDENTIFIER=${COPILOT_AGENT_IDENTIFIER}
+      - COPILOT_APP_CLIENT_ID=${COPILOT_APP_CLIENT_ID}
+      - COPILOT_CLIENT_SECRET=${COPILOT_CLIENT_SECRET}
+      - COPILOT_TENANT_ID=${COPILOT_TENANT_ID}
+      - COPILOT_REQUIRE_AUTH=${COPILOT_REQUIRE_AUTH:-true}
+      
+      # Slack Configuration
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
+      - SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET}
+      - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
+      
+      # Server Configuration
+      - PORT=8005
+      - NODE_ENV=${NODE_ENV:-production}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    
+    env_file:
+      - .env
+    
+    restart: unless-stopped
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Network configuration
+    networks:
+      - slack-relay-network
+
+networks:
+  slack-relay-network:
+    driver: bridge
+    name: slack-relay-network

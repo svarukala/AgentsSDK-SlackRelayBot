@@ -1,0 +1,41 @@
+{
+  "name": "slack-relay-bot",
+  "version": "1.0.0",
+  "description": "Headless middleware relay bot connecting Slack to Copilot Studio using Microsoft Agents SDK",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:dev-build": "docker-compose -f docker-compose.dev.yml up --build"
+  },
+  "keywords": [
+    "slack",
+    "copilot-studio",
+    "microsoft-agents-sdk",
+    "relay",
+    "middleware"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@microsoft/agents-copilotstudio-client": "^1.0.0",
+    "@azure/msal-node": "^2.15.0",
+    "@slack/bolt": "^3.19.0",
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
