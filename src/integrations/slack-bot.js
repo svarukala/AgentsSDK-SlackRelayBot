@@ -243,7 +243,8 @@ class SlackBot {
                         await say(response.text);
                         console.log(`✅ Response sent to Slack: "${response.text}"`);
                     } else {
-                        console.log('⚠️ No response from Copilot Studio');
+                        //TBD
+                        // console.log('⚠️ No response from Copilot Studio');
                     }
                 } else {
                     // UNAUTHENTICATED MODE: Use service account (less secure but simpler)
@@ -257,7 +258,8 @@ class SlackBot {
                         await say(response.text);
                         console.log(`✅ Response sent to Slack: "${response.text}"`);
                     } else {
-                        console.log('⚠️ No response from Copilot Studio');
+                        //TBD
+                        //console.log('⚠️ No response from Copilot Studio');
                     }
                 }
 
@@ -340,7 +342,8 @@ class SlackBot {
                         await say(response.text);
                         console.log(`✅ Response sent to Slack: "${response.text}"`);
                     } else {
-                        console.log('⚠️ No response from Copilot Studio');
+                        //TBD
+                        //console.log('⚠️ No response from Copilot Studio');
                     }
                 } else {
                     // Show typing indicator while processing
@@ -353,7 +356,8 @@ class SlackBot {
                         await say(response.text);
                         console.log(`✅ Response sent to Slack: "${response.text}"`);
                     } else {
-                        console.log('⚠️ No response from Copilot Studio');
+                        //TBD
+                        //console.log('⚠️ No response from Copilot Studio');
                     }
                 }
 

@@ -321,7 +321,6 @@ class RelayMiddleware {
     }
 
 
-
     /**
      * Clear a user's connection to force re-authentication
      * 
@@ -362,8 +361,8 @@ class RelayMiddleware {
      * Here's what happens:
      * 1. Takes a message from a Slack user
      * 2. Finds or creates their connection to Copilot Studio
-     * 3. Sends the message to the AI
-     * 4. Waits for the AI's response
+     * 3. Sends the message to the AI/MCS
+     * 4. Waits for the AI/MCS's response
      * 5. Returns the response back to Slack
      * 
      * @param {string} userId - The Slack user's ID
