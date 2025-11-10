@@ -1,6 +1,8 @@
 # 🤖 Slack Relay Bot
+
+**DISCLAIMER**: This is a proof of concept code and not ready for production deployment. There could be undocumented bugs. 
+
 **Transform your Slack workspace into an AI-powered collaboration hub by connecting it directly to Microsoft Copilot Studio.**
-**DISCLAIMER**: This is a proof of concept code and not ready for production deployment.
 
 This headless middleware bot creates a seamless bridge between Slack users and Microsoft Copilot Studio agents using the official Microsoft Agents SDK. Your team can chat with your custom AI agents without leaving Slack - no WebChat iframes, no context switching, just natural conversation.
 
